@@ -4,6 +4,16 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const QuestionShowPage = () => {
+  //This component will have one main element, with two children elements
+  return(
+    <main>
+      <QuestionDetails/>
+      <AnswerDetails/>
+    </main>
+  )
+}
+
 //Hard coded React component as JSX
 const QuestionDetails = () => {
   return(
@@ -14,6 +24,19 @@ const QuestionDetails = () => {
       <p>
         <small>Seen 10 times</small>
         <small>Last edited 2 hours ago</small>
+      </p>
+    </div>
+  )
+}
+
+const AnswerDetails = () => {
+  return(
+    <div>
+      <p>This is the body of my answer</p>
+      <p>By Who Knows</p>
+      <p>
+        <strong>Created at:</strong>
+        1 day ago
       </p>
     </div>
   )
@@ -35,7 +58,7 @@ root.render(
   //We are removing strict mode for now
   //With JSX, we had to access the React element created, but with JSX and Babel we can
   //now write the component as a html tag
-  <QuestionDetails/>
+  <QuestionShowPage/>
   //Note, with React and JSX, all tags must be closed properly
   //for example, an html self closing tag like <hr> might still work for regular html
   //but for React, it must be closed like <hr/> or <hr></hr>
