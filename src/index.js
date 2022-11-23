@@ -3,58 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
-
-
-const QuestionShowPage = () => {
-  //This component will have one main element, with two children elements
-  return(
-    <main>
-      <QuestionDetails
-      title="What is your favourite colour?"
-      body="Red,green,blue,rainbow..."
-      author={{full_name: "Jon Snow"}}
-      view_count={35}
-      created_at={ new Date() }
-      updated_at={ new Date() }
-      />
-      <AnswerDetails
-      body="This is the best answer"
-      author={{full_name: "Johnny Bravo"}}
-      created_at={new Date()}
-      />
-    </main>
-  )
-}
-
-//We are now adding props that are coming in as arguments from where we call QuestionDetails
-//(in this case with QuestionShowPage), but deconstructed:
-const QuestionDetails = ({title, body, author, view_count, created_at, updated_at}) => {
-  return(
-    <div>
-      <h2>{title}</h2>
-      <p>{body}</p>
-      <p>By {author.full_name}</p>
-      <p>
-        <small>Seen {view_count} times</small>
-        <small>Created: {created_at.toLocaleString()}</small>
-        <small>Last edited: {updated_at.toLocaleString()}</small>
-      </p>
-    </div>
-  )
-}
-
-const AnswerDetails = ({body, author, created_at}) => {
-  return(
-    <div>
-      <p>{body}</p>
-      <p>By {author.full_name}</p>
-      <p>
-        <strong>Created at:</strong>
-        {created_at.toLocaleString()}
-      </p>
-    </div>
-  )
-}
+// import QuestionDetails from './components/QuestionDetails';
+// import AnswerDetails from './components/AnswerDetails';
+import QuestionShowPage from './components/QuestionShowPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
