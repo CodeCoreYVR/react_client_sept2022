@@ -8,22 +8,31 @@ const QuestionShowPage = () => {
   //This component will have one main element, with two children elements
   return(
     <main>
-      <QuestionDetails/>
+      <QuestionDetails
+      title="What is your favourite colour?"
+      body="Red,green,blue,rainbow..."
+      author={{full_name: "Jon Snow"}}
+      view_count={35}
+      created_at={ new Date() }
+      updated_at={ new Date() }
+      />
       <AnswerDetails/>
     </main>
   )
 }
 
-//Hard coded React component as JSX
-const QuestionDetails = () => {
+//We are now adding props that are coming in as arguments from where we call QuestionDetails
+//(in this case with QuestionShowPage), but deconstructed:
+const QuestionDetails = ({title, body, author, view_count, created_at, updated_at}) => {
   return(
     <div>
-      <h2>What is your favourite colour?</h2>
-      <p>Green, blue, red, etc...</p>
-      <p>By Jon Snow</p>
+      <h2>{title}</h2>
+      <p>{body}</p>
+      <p>By {author.full_name}</p>
       <p>
-        <small>Seen 10 times</small>
-        <small>Last edited 2 hours ago</small>
+        <small>Seen {view_count} times</small>
+        <small>Created: {created_at.toLocaleString()}</small>
+        <small>Last edited: {updated_at.toLocaleString()}</small>
       </p>
     </div>
   )
