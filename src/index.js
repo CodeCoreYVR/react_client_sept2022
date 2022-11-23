@@ -4,6 +4,7 @@ import './index.css';
 // import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
 const QuestionShowPage = () => {
   //This component will have one main element, with two children elements
   return(
@@ -16,7 +17,11 @@ const QuestionShowPage = () => {
       created_at={ new Date() }
       updated_at={ new Date() }
       />
-      <AnswerDetails/>
+      <AnswerDetails
+      body="This is the best answer"
+      author={{full_name: "Johnny Bravo"}}
+      created_at={new Date()}
+      />
     </main>
   )
 }
@@ -38,14 +43,14 @@ const QuestionDetails = ({title, body, author, view_count, created_at, updated_a
   )
 }
 
-const AnswerDetails = () => {
+const AnswerDetails = ({body, author, created_at}) => {
   return(
     <div>
-      <p>This is the body of my answer</p>
-      <p>By Who Knows</p>
+      <p>{body}</p>
+      <p>By {author.full_name}</p>
       <p>
         <strong>Created at:</strong>
-        1 day ago
+        {created_at.toLocaleString()}
       </p>
     </div>
   )
