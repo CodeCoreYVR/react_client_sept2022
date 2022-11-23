@@ -2,6 +2,14 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+We used the following command to generate this app: npx create-react-app awesome-answers-react-client
+
+You could have also used the following instead:
+npm install -g create-react-app
+create-react-app awesome-answers-react 
+
+See https://stackoverflow.com/questions/50605219/difference-between-npx-and-npm for the difference.
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -10,6 +18,8 @@ In the project directory, you can run:
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+
+localhost:3000 is the default, but you can configure ot to another port if needed
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
@@ -68,3 +78,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+### To start with a clean slate, we got rid of the following files:
+src/App.test.js
+src/logo.svg
+
+We also removed the logo import in src/App.js, and customized our code to Hello World
+
