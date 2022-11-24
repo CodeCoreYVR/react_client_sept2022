@@ -12,7 +12,7 @@ class QuestionShowPage extends Component {
         this.state = {
             question: questionData 
         }
-        this.delete = this.delete.bind(this)
+        // this.delete = this.delete.bind(this)
     }
 
     //2
@@ -37,7 +37,7 @@ class QuestionShowPage extends Component {
             created_at={this.state.question.created_at}
             updated_at={this.state.question.updated_at}
             />
-            <button onClick={this.delete}>Delete this Question</button>
+            <button onClick={()=>{this.delete()}}>Delete this Question</button>
             <AnswerList
             answers={
                 this.state.question.answers
