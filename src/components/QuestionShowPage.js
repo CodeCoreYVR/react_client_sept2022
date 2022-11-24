@@ -5,11 +5,14 @@ import { Component } from 'react';
 import questionData from '../questionData';
 
 class QuestionShowPage extends Component {
+    //two ways to declare state
+    //1
     constructor(props){
         super(props);
         this.state = questionData 
     }
 
+    //2
     // state = {
     //     question: questionData
     // }
@@ -27,23 +30,7 @@ class QuestionShowPage extends Component {
             />
             <AnswerList
             answers={
-                [
-                    {
-                        body: "Answer 1",
-                        author: { full_name: "Steve Jobs" },
-                        created_at: new Date()
-                    },
-                    {
-                        body: "Answer 2",
-                        author: { full_name: "Elon Musk" },
-                        created_at: new Date()
-                    },
-                    {
-                        body: "Answer 3",
-                        author: { full_name: "Jeff Bezos" },
-                        created_at: new Date()
-                    },
-                ]
+                this.state.answers
             }
             />
           </main>
