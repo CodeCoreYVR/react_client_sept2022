@@ -5,7 +5,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 // import QuestionDetails from './components/QuestionDetails';
 // import AnswerDetails from './components/AnswerDetails';
-import QuestionShowPage from './components/QuestionShowPage';
+// import QuestionShowPage from './components/QuestionShowPage';
+import QuestionIndexPage from './components/QuestionIndexPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -23,7 +24,8 @@ root.render(
   //We are removing strict mode for now
   //With JSX, we had to access the React element created, but with JSX and Babel we can
   //now write the component as a html tag
-  <QuestionShowPage/>
+  // <QuestionShowPage/>
+  <QuestionIndexPage/>
   //Note, with React and JSX, all tags must be closed properly
   //for example, an html self closing tag like <hr> might still work for regular html
   //but for React, it must be closed like <hr/> or <hr></hr>
