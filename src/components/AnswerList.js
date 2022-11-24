@@ -1,7 +1,7 @@
 import React from 'react';
 import AnswerDetails from './AnswerDetails';
 
-const AnswerList = ({answers}) => {
+const AnswerList = ({answers, deleteAnswer}) => {
     return(
         <React.Fragment>
             {
@@ -11,6 +11,7 @@ const AnswerList = ({answers}) => {
                     body={a.body}
                     author={a.author}
                     created_at={a.created_at}
+                    deleteAnswer={()=> deleteAnswer(a.id)}
                     />
                 })
             }

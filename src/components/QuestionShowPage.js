@@ -26,6 +26,15 @@ class QuestionShowPage extends Component {
         })
     }
 
+    deleteAnswer(id){
+        this.setState({
+            question: {
+                ...this.state.question,
+                answers: this.state.question.answers.filter(a => a.id != id)
+            }
+        })
+    }
+
     render(){
         return(
           <main>
@@ -42,6 +51,7 @@ class QuestionShowPage extends Component {
             answers={
                 this.state.question.answers
             }
+            deleteAnswer={(id) => this.deleteAnswer(id)}
             />
           </main>
         )
