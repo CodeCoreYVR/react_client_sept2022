@@ -2,18 +2,28 @@ import QuestionDetails from './QuestionDetails';
 // import AnswerDetails from './AnswerDetails';
 import AnswerList from './AnswerList';
 import { Component } from 'react';
+import questionData from '../questionData';
 
 class QuestionShowPage extends Component {
+    constructor(props){
+        super(props);
+        this.state = questionData 
+    }
+
+    // state = {
+    //     question: questionData
+    // }
+
     render(){
         return(
           <main>
             <QuestionDetails
-            title="What is your favourite colour?"
-            body="Red,green,blue,rainbow..."
-            author={{full_name: "Jon Snow"}}
-            view_count={35}
-            created_at={ new Date() }
-            updated_at={ new Date() }
+            title={this.state.title}
+            body={this.state.body}
+            author={this.state.author}
+            view_count={this.state.view_count}
+            created_at={this.state.created_at}
+            updated_at={this.state.updated_at}
             />
             <AnswerList
             answers={

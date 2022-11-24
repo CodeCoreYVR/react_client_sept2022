@@ -5,8 +5,8 @@ import './index.css';
 import reportWebVitals from './reportWebVitals';
 // import QuestionDetails from './components/QuestionDetails';
 // import AnswerDetails from './components/AnswerDetails';
-// import QuestionShowPage from './components/QuestionShowPage';
-import QuestionIndexPage from './components/QuestionIndexPage';
+import QuestionShowPage from './components/QuestionShowPage';
+// import QuestionIndexPage from './components/QuestionIndexPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,16 +24,16 @@ root.render(
   //We are removing strict mode for now
   //With JSX, we had to access the React element created, but with JSX and Babel we can
   //now write the component as a html tag
-  // <QuestionShowPage/>
-  <QuestionIndexPage
-  list={
-    [
-      {title: "What's your fav color?", body: "RED, YELLOW, BLUE", created_at: new Date(), updated_at: new Date(), author: {full_name: "John"} },
-      {title: "What are you up to?", body: "Coding React", created_at: new Date(), updated_at: new Date(), author: {full_name: "Bob"} },
-      {title: "What is this?", body: "A react app", created_at: new Date(), updated_at: new Date(), author: {full_name: "Matt"} }
-    ]
-  }
-  />
+  <QuestionShowPage/>
+  // <QuestionIndexPage
+  // list={
+  //   [
+  //     {title: "What's your fav color?", body: "RED, YELLOW, BLUE", created_at: new Date(), updated_at: new Date(), author: {full_name: "John"} },
+  //     {title: "What are you up to?", body: "Coding React", created_at: new Date(), updated_at: new Date(), author: {full_name: "Bob"} },
+  //     {title: "What is this?", body: "A react app", created_at: new Date(), updated_at: new Date(), author: {full_name: "Matt"} }
+  //   ]
+  // }
+  // />
   //Note, with React and JSX, all tags must be closed properly
   //for example, an html self closing tag like <hr> might still work for regular html
   //but for React, it must be closed like <hr/> or <hr></hr>
