@@ -9,7 +9,10 @@ class QuestionShowPage extends Component {
     //1
     constructor(props){
         super(props);
-        this.state = questionData 
+        this.state = {
+            question: questionData 
+        }
+        this.delete = this.delete.bind(this)
     }
 
     //2
@@ -17,20 +20,27 @@ class QuestionShowPage extends Component {
     //     question: questionData
     // }
 
+    delete(){
+        this.setState({
+            question: null
+        })
+    }
+
     render(){
         return(
           <main>
             <QuestionDetails
-            title={this.state.title}
-            body={this.state.body}
-            author={this.state.author}
-            view_count={this.state.view_count}
-            created_at={this.state.created_at}
-            updated_at={this.state.updated_at}
+            title={this.state.question.title}
+            body={this.state.question.body}
+            author={this.state.question.author}
+            view_count={this.state.question.view_count}
+            created_at={this.state.question.created_at}
+            updated_at={this.state.question.updated_at}
             />
+            <button onClick={this.delete}>Delete this Question</button>
             <AnswerList
             answers={
-                this.state.answers
+                this.state.question.answers
             }
             />
           </main>
