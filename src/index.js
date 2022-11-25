@@ -7,15 +7,17 @@ import reportWebVitals from './reportWebVitals';
 // import AnswerDetails from './components/AnswerDetails';
 // import QuestionShowPage from './components/QuestionShowPage';
 // import QuestionIndexPage from './components/QuestionIndexPage';
+import {BrowserRouter} from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //StrictMode is a development only component.  We might get rid of this later.  But what it does
   //is it will search through the React components that you write, and it will tell you if there are
   //things you need to fix. It will give you hints.
-  <React.StrictMode>
+  <BrowserRouter>
     <App />
-  </React.StrictMode>
+  </BrowserRouter>
+  
   //App here is the root component.  That is because of how React is structured.  There is always 
   //one main component that renders out all of the rest of the components
   //So App is the very first component we will have, and it will have children, and
