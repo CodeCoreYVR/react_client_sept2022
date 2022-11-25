@@ -2,7 +2,7 @@
 const baseURL = "http://localhost:3000/api/v1"
 
 // ===============Question=========================
-const Question = {
+export const Question = {
     // fetch all the questions from server
     index(){
       return fetch(`${baseURL}/questions`)
