@@ -2,7 +2,8 @@ import QuestionDetails from './QuestionDetails';
 // import AnswerDetails from './AnswerDetails';
 import AnswerList from './AnswerList';
 import { Component } from 'react';
-import questionData from '../questionData';
+// import questionData from '../questionData';
+import {Question} from '../requests';
 
 class QuestionShowPage extends Component {
     //two ways to declare state
@@ -10,7 +11,7 @@ class QuestionShowPage extends Component {
     constructor(props){
         super(props);
         this.state = {
-            question: questionData 
+            question: {}
         }
         // this.delete = this.delete.bind(this)
     }
@@ -19,6 +20,17 @@ class QuestionShowPage extends Component {
     // state = {
     //     question: questionData
     // }
+
+    componentDidMount(){
+        Question.show(483) //just hard coded for now
+        .then((fetchedAPIquestion) => {
+            this.setState(() => {
+                return{
+                    question: fetchedAPIquestion
+                }
+            })
+        })
+    }
 
     delete(){
         this.setState({
@@ -41,7 +53,7 @@ class QuestionShowPage extends Component {
             <QuestionDetails
             title={this.state.question.title}
             body={this.state.question.body}
-            author={this.state.question.author}
+            author={this.state.question.author_full_name}
             view_count={this.state.question.view_count}
             created_at={this.state.question.created_at}
             updated_at={this.state.question.updated_at}

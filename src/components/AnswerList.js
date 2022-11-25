@@ -4,16 +4,19 @@ import AnswerDetails from './AnswerDetails';
 const AnswerList = ({answers, deleteAnswer}) => {
     return(
         <React.Fragment>
-            {
+            {   
+                answers ?
                 answers.map((a,i) => {
                     return <AnswerDetails
                     key={i}
                     body={a.body}
-                    author={a.author}
+                    author={a.author_full_name}
                     created_at={a.created_at}
                     deleteAnswer={()=> deleteAnswer(a.id)}
                     />
                 })
+                :
+                null
             }
         </React.Fragment>
     )
