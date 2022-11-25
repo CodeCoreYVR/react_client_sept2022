@@ -7,6 +7,7 @@ import QuestionShowPage from './components/QuestionShowPage';
 import QuestionIndexPage from './components/QuestionIndexPage';
 import { Route, Routes } from 'react-router-dom';
 import WelcomePage from './components/WelcomePage';
+import NavBar from './components/NavBar';
 
 class App extends Component {
   constructor(props){
@@ -33,11 +34,14 @@ class App extends Component {
   }
   render(){
     return (
+      <>
+      <NavBar/>
       <Routes>
         <Route exact path='/' element={<WelcomePage/>}/>
         <Route exact path='/questions' element={<QuestionIndexPage/>}/>
         <Route path='/questions/:id' element={<QuestionShowPage/>}/>
       </Routes>
+      </>
     );
   }
 }

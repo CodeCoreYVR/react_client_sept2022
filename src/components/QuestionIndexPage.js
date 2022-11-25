@@ -3,6 +3,7 @@ import {Component} from 'react';
 // import questionIndexData from '../questionIndexData';
 import NewQuestionForm from './NewQuestionForm';
 import {Question} from '../requests';
+import {Link} from 'react-router-dom';
 
 class QuestionIndexPage extends Component {
     // state = {
@@ -49,7 +50,7 @@ class QuestionIndexPage extends Component {
                 <ul>
                     {
                         this.state.questions.map((q, i) => {
-                            return <li key={i}>{q.id} - {q.title} <button onClick={()=> {this.deleteQuestion(q.id)}}>Delete</button></li>
+                            return <li key={i}>{q.id} - <Link to={`/questions/${q.id}`}>{q.title}</Link> <button onClick={()=> {this.deleteQuestion(q.id)}}>Delete</button></li>
                         })
                     }
                 </ul>
