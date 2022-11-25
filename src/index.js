@@ -1,21 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
+import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import QuestionDetails from './components/QuestionDetails';
 // import AnswerDetails from './components/AnswerDetails';
 // import QuestionShowPage from './components/QuestionShowPage';
-import QuestionIndexPage from './components/QuestionIndexPage';
+// import QuestionIndexPage from './components/QuestionIndexPage';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //StrictMode is a development only component.  We might get rid of this later.  But what it does
   //is it will search through the React components that you write, and it will tell you if there are
   //things you need to fix. It will give you hints.
-  // <React.StrictMode>
-  //   <App />
-  // </React.StrictMode>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
   //App here is the root component.  That is because of how React is structured.  There is always 
   //one main component that renders out all of the rest of the components
   //So App is the very first component we will have, and it will have children, and
@@ -34,7 +34,7 @@ root.render(
   //   ]
   // }
   // />
-  <QuestionIndexPage/>
+  // <QuestionIndexPage/>
   //Note, with React and JSX, all tags must be closed properly
   //for example, an html self closing tag like <hr> might still work for regular html
   //but for React, it must be closed like <hr/> or <hr></hr>
