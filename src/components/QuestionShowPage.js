@@ -4,7 +4,14 @@ import AnswerList from './AnswerList';
 import { Component } from 'react';
 // import questionData from '../questionData';
 import {Question} from '../requests';
+import { useParams } from 'react-router-dom';
 
+export function withRouter(Children){
+    return(props)=>{
+        const match = { params: useParams() }
+        return <Children {...props} match= {match} />
+    }
+}
 class QuestionShowPage extends Component {
     //two ways to declare state
     //1
@@ -22,7 +29,9 @@ class QuestionShowPage extends Component {
     // }
 
     componentDidMount(){
-        Question.show(483) //just hard coded for now
+        // Question.show(483) //just hard coded for now
+        console.log(this.props.match.params.id)
+        Question.show(this.props.match.params.id) //no more hard coding - display the first id that matches. We have access to the params and the match methos through our router
         .then((fetchedAPIquestion) => {
             this.setState(() => {
                 return{
@@ -71,4 +80,4 @@ class QuestionShowPage extends Component {
     
 }
 
-export default QuestionShowPage;
+export default withRouter(QuestionShowPage);
