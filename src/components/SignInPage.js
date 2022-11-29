@@ -5,18 +5,21 @@ import { useState } from "react";
 function SignInPage(props) {
   const { onSignIn } = props;
 
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   const navigate = useNavigate();
 
   const [errors, setErrors] = useState([]);
 
   function handleSubmit(event) {
     event.preventDefault();
-    const { currentTarget } = event;
+    // const { currentTarget } = event;
 
-    const formData = new FormData(currentTarget);
+    // const formData = new FormData(currentTarget);
     const params = {
-      email: formData.get("email"),
-      password: formData.get("password"),
+      email: email,
+      password: password,
     };
 
     Session.create(params).then((data) => {
@@ -47,11 +50,15 @@ function SignInPage(props) {
         )}
         <div>
           <label htmlFor="email">Email</label>
-          <input type="text" name="email" id="email" />
+          <input type="text" name="email" id="email" onChange={event => {
+            setEmail(event.currentTarget.value)
+          }} />
         </div>
         <div>
           <label htmlFor="password">Password</label>
-          <input type="password" name="password" id="password" />
+          <input type="password" name="password" id="password" onChange={event => {
+            setPassword(event.currentTarget.value)
+          }} />
         </div>
         <input type="submit" value="Sign In" />
       </form>
