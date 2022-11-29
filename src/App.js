@@ -1,5 +1,5 @@
 import "./App.css";
-import { Component } from "react";
+import { useState, useEffect } from "react";
 // import CurrentDateTime from './components/CurrentDateTime';
 import { Session } from "./requests";
 import { User } from "./requests";
@@ -16,60 +16,61 @@ import AuthRoutes from "./components/AuthRoutes";
 import UseStateHook from "./components/UseStateHook";
 import UseEffectHook from "./components/UseEffectHook";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      clocksCount: [1], //an array of something
-      user: null,
-    };
-  }
+export default function App() {
+  const [user, setUser] = useState(null);
+  const [clocksCount, setClocksCount] = useState(true);
 
-  componentDidMount() {
-    this.getCurrentUser();
-  }
+  useEffect(() => {
+    getCurrentUser();
+  }, []);
 
-  getCurrentUser = () => {
+  const getCurrentUser = () => {
     return User.current().then((user) => {
       if (user?.id) {
-        this.setState((state) => {
-          return { user };
-        });
+        setUser(user);
       }
     });
   };
 
-  onSignOut = () => {
-    this.setState( { user: null } )
-  }
+  const onSignOut = () => {
+    setUser(null);
+  };
 
-  render() {
-    return (
-      <>
-        <NavBar currentUser={this.state.user} onSignOut={this.onSignOut} clocksCount={this.state.clocksCount} />
-        <Routes>
-          <Route exact path="/" element={<WelcomePage />} />
-          <Route exact path="/questions" element={<QuestionIndexPage />} />
-          <Route element={<AuthRoutes isAuthenticated={!!this.state.user} />}>
-            <Route exact path="/questions/new" element={<NewQuestionPage />} />
-          </Route>
-          <Route path="/questions/:id" element={<QuestionShowPage />} />
-          {/* <Route
+  return (
+    <>
+      <NavBar
+        currentUser={user}
+        onSignOut={onSignOut}
+        clocksCount={clocksCount}
+      />
+      <Routes>
+        <Route exact path="/" element={<WelcomePage />} />
+        <Route exact path="/questions" element={<QuestionIndexPage />} />
+        <Route element={<AuthRoutes isAuthenticated={!!user} />}>
+          <Route exact path="/questions/new" element={<NewQuestionPage />} />
+        </Route>
+        <Route path="/questions/:id" element={<QuestionShowPage />} />
+        {/* <Route
             exact
             path="/sign_in"
             render={(routeProps) => (
               <SignInPage {...routeProps} onSignIn={this.getCurrentUser} />
             )}
           ></Route> */}
-          {/* ^^ react router dom v5 way */}
-          <Route exact path='/sign_in' element={<SignInPage onSignIn={this.getCurrentUser}/>} />
-          <Route exact path='/sign_up' element={<SignUpPage onSignUp={this.getCurrentUser}/>} />
-          <Route path='/use_state' element={ <UseStateHook /> } />
-          <Route path='/use_effect' element={ <UseEffectHook /> } />
-        </Routes>
-      </>
-    );
-  }
+        {/* ^^ react router dom v5 way */}
+        <Route
+          exact
+          path="/sign_in"
+          element={<SignInPage onSignIn={getCurrentUser} />}
+        />
+        <Route
+          exact
+          path="/sign_up"
+          element={<SignUpPage onSignUp={getCurrentUser} />}
+        />
+        <Route path="/use_state" element={<UseStateHook />} />
+        <Route path="/use_effect" element={<UseEffectHook />} />
+      </Routes>
+    </>
+  );
 }
-
-export default App;

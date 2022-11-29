@@ -28,7 +28,6 @@ const QuestionShowPage = (props) => {
         answers: answers.filter(a => a.id !== id),
         ...rest
     })
-    
   }
 
   const { title, body, author_full_name, view_count, created_at, updated_at} = question
