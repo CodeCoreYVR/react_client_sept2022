@@ -13,6 +13,7 @@ import NewQuestionPage from "./components/NewQuestionPage";
 import SignInPage from "./components/SignInPage";
 import SignUpPage from "./components/SignUpPage";
 import AuthRoutes from "./components/AuthRoutes";
+import UseStateHook from "./components/UseStateHook";
 
 class App extends Component {
   constructor(props) {
@@ -62,6 +63,7 @@ class App extends Component {
           {/* ^^ react router dom v5 way */}
           <Route exact path='/sign_in' element={<SignInPage onSignIn={this.getCurrentUser}/>} />
           <Route exact path='/sign_up' element={<SignUpPage onSignUp={this.getCurrentUser}/>} />
+          <Route path='/use_state' element={ <UseStateHook /> } />
         </Routes>
       </>
     );
