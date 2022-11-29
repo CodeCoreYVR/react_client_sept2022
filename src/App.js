@@ -14,6 +14,7 @@ import SignInPage from "./components/SignInPage";
 import SignUpPage from "./components/SignUpPage";
 import AuthRoutes from "./components/AuthRoutes";
 import UseStateHook from "./components/UseStateHook";
+import UseEffectHook from "./components/UseEffectHook";
 
 class App extends Component {
   constructor(props) {
@@ -64,6 +65,7 @@ class App extends Component {
           <Route exact path='/sign_in' element={<SignInPage onSignIn={this.getCurrentUser}/>} />
           <Route exact path='/sign_up' element={<SignUpPage onSignUp={this.getCurrentUser}/>} />
           <Route path='/use_state' element={ <UseStateHook /> } />
+          <Route path='/use_effect' element={ <UseEffectHook /> } />
         </Routes>
       </>
     );
