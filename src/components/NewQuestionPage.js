@@ -26,6 +26,7 @@ class NewQuestionPage extends Component{
         .then((question) => {
             console.log(`question: ${question}`)
             if (question.errors){
+                console.log(`QuestionErrors: ${question.errors}`, question.errors)
                 this.setState({ errors: question.errors })
             } else {
                 console.log(this.props)
