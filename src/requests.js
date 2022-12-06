@@ -93,3 +93,16 @@ export const User = {
     }).then(res => res.json())
   }
 };
+
+export const Gift = {
+  create(params) {
+    return fetch(`${baseURL}/gifts`, {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      credentials: 'include',
+      body: JSON.stringify(params)
+    }).then(res => res.json())
+  }
+}

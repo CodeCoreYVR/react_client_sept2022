@@ -12,6 +12,7 @@ const AnswerList = ({answers, deleteAnswer}) => {
                     body={a.body}
                     author={a.author_full_name}
                     created_at={a.created_at}
+                    id={a.id}
                     deleteAnswer={()=> deleteAnswer(a.id)}
                     />
                 })

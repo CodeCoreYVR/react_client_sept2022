@@ -16,6 +16,7 @@ import AuthRoutes from "./components/AuthRoutes";
 import UseStateHook from "./components/UseStateHook";
 import UseEffectHook from "./components/UseEffectHook";
 import NotFoundPage from "./components/NotFoundPage";
+import GiftPage from "./components/GiftPage";
 
 export default function App() {
   const [user, setUser] = useState(null);
@@ -71,6 +72,7 @@ export default function App() {
         />
         <Route path="/use_state" element={<UseStateHook />} />
         <Route path="/use_effect" element={<UseEffectHook />} />
+        <Route path="/gifts/:id" element={<GiftPage />} />
         <Route path="*" element={<NotFoundPage/>} />
       </Routes>
     </>
